@@ -15,7 +15,7 @@ def binary_search(arr, target):
 
 def main():
     size = int(input("Enter the size: "))
-    print("Enter {size} ordered elements separated by space: ")
+    print(f"Enter {size} ordered elements separated by space: ")
     arr = list(map(int, input().split()))
 
     if len(arr) != size:
