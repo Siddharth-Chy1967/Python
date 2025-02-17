@@ -16,18 +16,23 @@ def binary_search(arr, target):
 
 
 def main():
-    arr = list(input("Enter a list of numbers to search from: "))
-    if all (parts in arr.isdigit() for parts in arr):
-        arr.split(" ")
-        arr = int(arr)
-    else:
-        print("Atleast one input was not a number.")
 
-    target = input("Enter target to search: ")
+        arr = list(input("Enter a list of numbers to search from (space separated): "))
+        if all(parts.isdigit() for parts in arr):
+            arr.split(" ")
+            arr = int(arr)
+        else:
+            print("Atleast one input was not a number.")
 
-    index = binary_search(arr, target)
+        target = input("Enter target to search: ")
 
-    if not (index == -1):
-        print(f"The target is in {}")
+
+        index = binary_search(arr, target)
+
+        if not (index == -1):
+         print(f"The target is in {index}")
+        else:
+            print("Target not found")
+
 if __name__ == "__main__":
-    main()
+    main()  
