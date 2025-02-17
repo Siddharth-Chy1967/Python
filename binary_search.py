@@ -1,38 +1,47 @@
 def binary_search(arr, target):
+   
     left = 0
     right = len(arr) - 1
-
-    while(left <= right):
-        mid = (left + right)/2
-        if(arr[mid] == target):
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
             return mid
-        elif(arr[mid] < target):
+        elif arr[mid] < target:
             left = mid + 1
-        elif(arr[mid] > target):
+        else:
             right = mid - 1
-        
-
     return -1
 
-
 def main():
+    while True:
+        
+        arr = input("Enter a list of numbers to search from (space separated): ").strip()
+        arr = arr.split(" ")
 
-        arr = list(input("Enter a list of numbers to search from (space separated): "))
-        if all(parts.isdigit() for parts in arr):
-            arr.split(" ")
-            arr = int(arr)
+       
+        if all(part.isdigit() for part in arr):
+            arr = [int(part) for part in arr]
         else:
-            print("Atleast one input was not a number.")
+            print("At least one input was not a number.")
+            continue 
 
-        target = input("Enter target to search: ")
+       
+        target = input("Enter target to search: ").strip()
+        if not target.isdigit():
+            print("Target must be a number.")
+            continue  
+        target = int(target)
+        
 
-
+      
         index = binary_search(arr, target)
 
-        if not (index == -1):
-         print(f"The target is in {index}")
+        
+        if index != -1:
+            print(f"The target is at index {index}.")
         else:
-            print("Target not found")
+            print("Target not found.")
+        break
 
 if __name__ == "__main__":
-    main()  
+    main()
