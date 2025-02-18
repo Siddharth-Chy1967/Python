@@ -1,22 +1,22 @@
-def lastFirst(full_name):
-    nameList = list(full_name.split(" "))
+def lastFirst(fullName):
+    name_list = fullName.split() e
+    lastName = name_list[-1].strip()
+    restName = ' '.join(name_list[:-1]).strip()
+    return lastName + ' ' + restName 
 
-    last_name = nameList[-1]
-
-    rest_name = ' '.join(nameList[:-1]).strip()
-
-    return last_name + ', ' + rest_name
-
-def get_initials(name):
-  name_list = name.split(" ")
-  initials = [part[0].upper() + '.' for part in name_list]
-
-  return " ".join(initials).strip()
+def initials(fullName):
+    nameList = fullName.split()  
+    initials = [part[0].upper() for part in nameList]  # Call upper()
+    return '. '.join(initials)  # Return the result
 
 def main():
-    fullName = input("Enter your full name: ")
+    fullName = input("Enter full name: ")  # No need for str() here
+    last_first_name = lastFirst(fullName)  # Store the returned value
+    initials_str = initials(fullName)  # Store the returned value
 
-    print("Entered name: ", lastFirst(fullName))
-    print("Initials: ", get_initials(fullName))
+    print("Name entered: " + fullName)  # Print original name
+    print("Last name first: " + last_first_name)
+    print("Initials: " + initials_str)
 
-main()
+if __name__ == "__main__":
+    main()
