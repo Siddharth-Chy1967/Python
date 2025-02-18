@@ -9,9 +9,9 @@ def lastFirst(full_name):
 
 def get_initials(name):
   name_list = name.split(" ")
-  initials = [part[0].upper() + '. ' for part in name_list]
+  initials = [part[0].upper() + '.' for part in name_list]
 
-  return "".join(initials)
+  return " ".join(initials).strip()
 
 def main():
     fullName = input("Enter your full name: ")
